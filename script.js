@@ -43,35 +43,39 @@ for(let i = 0; i < line1.length; i++){
 
 //new Letter(200, 200, "H"), new Letter(400, 200, "H")];
 //engine.world.gravity = 0;
-setInterval(function(){
-  screen_ratio = window.innerWidth/window.innerHeight;    //fill screen
-  if(screen_ratio < 5/8){
-    c.style.width = window.innerWidth + "px";
-    c.style.height = window.innerWidth/(5/8) + "px";
-  }
-  else {
-    c.style.width = window.innerHeight*(5/8) + "px";
-    c.style.height = window.innerHeight + "px";
-  }
+document.addEventListener("DOMContentLoaded", start);
 
-  Engine.update(engine, 16);
-  ctx.drawImage(bg, 0, 0, 500, 800);
-  if(timer > 0)
-    position_letters();
-  if(click > 0)
-    timer--;
-  console.log(timer)
-  //render(letters);
-  draw_letters();
-  draw_fake_letters();
-  wheel.update();
-  if(timer == 0){
-    for(let i = 0; i < letters.length; i++){
-      Matter.Body.setAngularVelocity(letters[i].object, Math.random()*2-1)
-      Matter.Body.setVelocity(letters[i].object, {x: Math.random()*4-2, y: -Math.random()*5})
+function start(){
+  setInterval(function(){
+    screen_ratio = window.innerWidth/window.innerHeight;    //fill screen
+    if(screen_ratio < 5/8){
+      c.style.width = window.innerWidth + "px";
+      c.style.height = window.innerWidth/(5/8) + "px";
     }
-  }
-}, 20);
+    else {
+      c.style.width = window.innerHeight*(5/8) + "px";
+      c.style.height = window.innerHeight + "px";
+    }
+
+    Engine.update(engine, 16);
+    ctx.drawImage(bg, 0, 0, 500, 800);
+    if(timer > 0)
+      position_letters();
+    if(click > 0)
+      timer--;
+    console.log(timer)
+    //render(letters);
+    draw_letters();
+    draw_fake_letters();
+    wheel.update();
+    if(timer == 0){
+      for(let i = 0; i < letters.length; i++){
+        Matter.Body.setAngularVelocity(letters[i].object, Math.random()*2-1)
+        Matter.Body.setVelocity(letters[i].object, {x: Math.random()*4-2, y: -Math.random()*5})
+      }
+    }
+  }, 20);
+}
 //render(letters);
 
 function position_letters(){
