@@ -48,14 +48,14 @@ document.addEventListener("DOMContentLoaded", start);
 
 function start(){
   setInterval(function(){
-    screen_ratio = window.innerWidth/window.innerHeight;    //fill screen
+    screen_ratio = window.screen.width/window.screen.height;    //fill screen
     if(screen_ratio < 5/8){
-      c.style.width = window.innerWidth + "px";
-      c.style.height = window.innerWidth/(5/8) + "px";
+      c.style.width = window.screen.width + "px";
+      c.style.height = window.screen.width/(5/8) + "px";
     }
     else {
-      c.style.width = window.innerHeight*(5/8) + "px";
-      c.style.height = window.innerHeight + "px";
+      c.style.width = window.screen.height*(5/8) + "px";
+      c.style.height = window.screen.height + "px";
     }
 
     Engine.update(engine, 16);
