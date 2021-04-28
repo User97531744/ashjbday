@@ -28,7 +28,7 @@ class Wheel {
       ctx.drawImage(wc, 0, 50, 500, 50, 0, this.y, 500, 50);
       if(this.done && this.timer%50 == 20){
         this.continue = false;
-        let current = this.words[(this.timer%300-70)/50];
+        let current = this.words[5-(((this.timer%300+180)/50)%6)];
         for(let i = 0; i < current.length; i++){
           letters.push(new Letter(275-current.length*25+50*i, this.y+25, current.charAt(i)));
         }
