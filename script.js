@@ -7,6 +7,7 @@ wctx.font = "60px Arial";
 var wheel = new Wheel(250, 240);
 var timer = 50;
 var bg = get_image("untitled.png");
+console.log(bg);
 
 Engine = Matter.Engine;
 Body = Matter.Body;
